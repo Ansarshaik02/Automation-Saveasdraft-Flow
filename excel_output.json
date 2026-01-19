@@ -1,0 +1,84 @@
+{
+  "header": [
+    "Test case id",
+    "Description",
+    "Steps to do",
+    "Expected Output"
+  ],
+  "rows": [
+    [
+      "TC057",
+      "Verify that products already added to the cart are listed on the cart page.",
+      "Navigate to https://www.saucedemo.com/\n\nLogin with valid credentials.\n\nAdd one or more products to the cart.\n\nClick on the Cart button.",
+      "All added products should be listed on the cart page with correct details.",
+      "4b"
+    ],
+    [
+      "TC058",
+      "Verify that the user can remove products from the cart.",
+      "Navigate to https://www.saucedemo.com/\n\nLogin with valid credentials.\n\nAdd a product to the cart.\n\nNavigate to the cart page.\n\nClick on the Remove button for the product.",
+      "Selected product should be removed from the cart.",
+      "4c"
+    ],
+    [
+      "TC059",
+      "Verify that the user can modify the product quantity on the cart page.",
+      "Navigate to https://www.saucedemo.com/\n.\n\nLogin with valid credentials.\n\nAdd a product to the cart.\n\nNavigate to the cart page.\n\nModify the product quantity.",
+      "Product quantity should be updated correctly.",
+      "4d"
+    ],
+    [
+      "TC060",
+      "Verify that the Continue Shopping option is available on the cart page.",
+      "Navigate to https://www.saucedemo.com/\n\nLogin with valid credentials.\n\nNavigate to the cart page",
+      "Continue Shopping button should be visible and enabled.",
+      "4e"
+    ],
+    [
+      "TC061",
+      "Verify that the user can proceed to checkout from the cart page.",
+      "Navigate to https://www.saucedemo.com/\n\nLogin with valid credentials.\n\nAdd one or more products to the cart.\n\nNavigate to the cart page.\n\nClick on Checkout.",
+      "User should be redirected to the checkout page.",
+      "4f"
+    ],
+    [
+      "TC062",
+      "Verify that clicking on the product name redirects the user to the product details page.",
+      "Navigate to https://www.saucedemo.com/\n\nLogin with valid credentials.\n\nAdd a product to the cart.\n\nNavigate to the cart page.\n\nClick on the product name.",
+      "User should be redirected to the corresponding product details page.",
+      "4g"
+    ],
+    [
+      "TC063",
+      "Verify cart page behavior when no products are added.",
+      "Navigate to https://www.saucedemo.com/\n\nLogin with valid credentials.\n\nNavigate to the cart page without adding any products.",
+      "Cart page should display an empty state with no products listed.",
+      4,
+      "Negative"
+    ],
+    [
+      "TC064",
+      "Verify that the user cannot proceed to checkout when the cart is empty.",
+      "Navigate to https://www.saucedemo.com/\n\nLogin with valid credentials.\n\nNavigate to the cart page without adding products.",
+      "Checkout button should be disabled or user should be prevented from proceeding.",
+      4,
+      "Negative"
+    ],
+    [
+      "TC065",
+      "Verify that cart contents are retained after refreshing the cart page.",
+      "Navigate to https://www.saucedemo.com/\n\nLogin with valid credentials.\n\nAdd products to the cart.\n\nNavigate to the cart page.\n\nRefresh the page.",
+      "Previously added products should still be displayed.",
+      null,
+      "Edge"
+    ],
+    [
+      "TC066",
+      "Verify that the cart page cannot be accessed without logging in.",
+      "Navigate to https://www.saucedemo.com/\n\nWithout logging in, try to access the cart page URL directly.",
+      "User should be redirected to the login page.",
+      null,
+      "Edge"
+    ]
+  ]
+}
