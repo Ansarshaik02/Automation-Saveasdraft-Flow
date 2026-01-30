@@ -1,18 +1,64 @@
-await page.getByRole('button', { name: 'Create Form' }).first().click();//creatte form
+export const reviewCycleLocators = {
+  reviewsNav: (page) => page.getByRole('link', { name: 'Reviews', exact: true }),
 
-  await page.getByRole('button', { name: 'Create From Scratch' }).click();//create from scratch
+  createNewCycleBtn: (page) =>
+    page.getByRole('button', { name: 'Create New Cycle' }),
 
-await page.getByRole('button', { name: 'Add' }).first().click();//add question
+  createPerformanceReviewBtn: (page) =>
+    page.locator('.ant-modal-body')
+      .getByRole('button', { name: 'Create Performance Review' }),
 
-await page.getByRole('button', { name: 'Add' }).nth(5).click();//add question type
+  titleInput: (page) => page.locator('#review-name'),
 
-  await page.locator('div:nth-child(10) > .flex.justify-between > .ant-btn').click();//add question to form
+  saveAndContinueBtn: (page) =>
+    page.getByRole('button', { name: 'Save & Continue' }),
 
-    await page.getByRole('button', { name: 'Edit Form' }).click();//edit form
+  saveAsDraftBtn: (page) =>
+    page.getByRole('button', { name: 'Save as Draft' }),
 
-      await page.getByRole('button', { name: 'Close' }).click();// close button
+  createFormBtn: (page) =>
+    page.getByRole('button', { name: 'Create Form' }).first(),
 
+  createFromScratchBtn: (page) =>
+    page.getByRole('button', { name: 'Create From Scratch' }),
 
+  addQuestionBtn: (page, index = 0) =>
+    page.getByRole('button', { name: 'Add' }).nth(index),
 
+  addReviewersBtn: (page) =>
+    page.getByRole('button', { name: 'Add Reviewers' }),
 
+  verifyPageText: (page) =>
+    page.getByText(
+      'You are good to go. Just review your choices and you are good to go.'
+    ),
 
+  // Step Nav
+  stepNav: (page, stepNumber) => page.getByText(stepNumber.toString()),
+
+  // Goals
+  goalSwitch: (page) => page.getByRole('switch').nth(4),
+  goalCycleDropdown: (page) =>
+    page.locator('div').filter({ hasText: /^Select Goal Cycles$/ }),
+  selectAllGoalCycles: (page) =>
+    page.getByRole('menuitem', { name: 'Select All Goal Cycles' }),
+  allCyclesSelectedHelper: (page) =>
+    page.locator('div').filter({ hasText: /^All Cycles Selected$/ }),
+
+  // Forms
+  editFormBtn: (page) => page.getByRole('button', { name: 'Edit Form' }).first(),
+  formQuestionCard: (page) => page.locator('.draggable-question-card'),
+  formBuilderAddBtn: (page) => page.locator('button:has-text("Add")'),
+
+  // Drafts
+  draftListItems: (page) => page.locator('.flex.flex-col.flex-grow-1'),
+  draftTitle: (title, page) => page.getByText(title),
+
+  // Misc
+  closeModalBtn: (page) => page.locator('.review-creation-form-layout .close-btn').first(),
+  confirmDiscardBtn: (page) => page.getByRole('button', { name: /(Discard|Leave|Yes|OK|Confirm)/i }),
+  createReviewCycleBtn: (page) =>
+    page.getByRole('button', { name: 'Create Review Cycle' }),
+  phasesTab: (page) => page.locator('span').filter({ hasText: 'Phases' }),
+  statusNotStarted: (page) => page.getByText('not started', { exact: true })
+};
